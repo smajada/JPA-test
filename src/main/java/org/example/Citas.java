@@ -1,29 +1,31 @@
 package org.example;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jdk.jfr.Enabled;
+import jakarta.persistence.*;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.sql.Date;
+import java.sql.Time;
 import java.util.Objects;
 
 @Entity
+@Table(name = "citas")
 public class Citas {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "ct_id")
     private Integer id;
+    @Column(name = "ct_idpaciente")
     private Integer id_paciente;
+    @Column(name = "ct_idmedico")
     private Integer id_medico;
-    private LocalDate fecha;
-    private LocalTime hora;
+    @Column(name = "ct_fecha")
+    private Date fecha;
+    @Column(name = "ct_hora")
+    private Time hora;
 
     public Citas() {
     }
 
-    public Citas(Integer id_paciente, Integer id_medico, LocalDate fecha, LocalTime hora) {
+    public Citas(Integer id_paciente, Integer id_medico, Date fecha, Time hora) {
         this.id_paciente = id_paciente;
         this.id_medico = id_medico;
         this.fecha = fecha;
@@ -67,19 +69,19 @@ public class Citas {
         this.id_medico = id_medico;
     }
 
-    public LocalDate getFecha() {
+    public Date getFecha() {
         return fecha;
     }
 
-    public void setFecha(LocalDate fecha) {
+    public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
 
-    public LocalTime getHora() {
+    public Time getHora() {
         return hora;
     }
 
-    public void setHora(LocalTime hora) {
+    public void setHora(Time hora) {
         this.hora = hora;
     }
 }
