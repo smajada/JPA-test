@@ -22,7 +22,7 @@ public class Main {
 
     public static void createCitas(){
         jpaService.runInTransaction(entityManager -> {
-            Date date = new Date(123, 3, 14); // 123 = year-1900, 3 = month (0-indexed), 14 = day
+            Date date = new Date(123, 3, 21); // 123 = year-1900, 3 = month (0-indexed), 14 = day
             entityManager.persist(new Citas(1, 1, date, new Time(10, 0, 0)));
             return null;
         });
