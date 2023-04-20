@@ -3,15 +3,17 @@ package org.example;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
+
     private static final JPAService jpaService = JPAService.getInstance();
 
 
     public static void main(String[] args) {
         try {
-        createCitas();
-        printCitas();
+            createCitas();
+            printCitas();
 
 
 
@@ -21,7 +23,9 @@ public class Main {
     }
 
     public static void createCitas(){
-                System.out.print("Write the ID of the pacient: ");
+        Scanner scan = new Scanner(System.in);
+
+        System.out.print("Write the ID of the pacient: ");
         int pacientID = scan.nextInt();
 
         System.out.print("Write the ID of the doctor: ");
