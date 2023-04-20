@@ -21,9 +21,26 @@ public class Main {
     }
 
     public static void createCitas(){
+                System.out.print("Write the ID of the pacient: ");
+        int pacientID = scan.nextInt();
+
+        System.out.print("Write the ID of the doctor: ");
+        int doctorID = scan.nextInt();
+
+        System.out.print("Write the day of the appointment: ");
+        int day = scan.nextInt();
+        System.out.print("Write the month of the appointment: ");
+        int month = scan.nextInt();
+        System.out.print("Write the year of the appointment: ");
+        int year = scan.nextInt();
+
+        System.out.println("For that available date, the hour must be 10am.");
+        System.out.println("Creating appointment...");
+
+
         jpaService.runInTransaction(entityManager -> {
-            Date date = new Date(123, 3, 21); // 123 = year-1900, 3 = month (0-indexed), 14 = day
-            entityManager.persist(new Citas(1, 1, date, new Time(10, 0, 0)));
+            Date date = new Date(year-1900, month - 1, day); // 123 = year-1900, 3 = month (0-indexed), 14 = day
+            entityManager.persist(new Citas(pacientID, doctorID, date, new Time(10, 0, 0)));
             return null;
         });
     }
