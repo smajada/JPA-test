@@ -16,7 +16,7 @@ This project is a medical appointment management application, which uses JPA (Ja
 - MySQL 5.7+
 
 ## Database configuration
-1. Create a database named appointments_db in your MySQL instance.
+1. Create a database named citas_db in your MySQL instance.
 2. Update the database connection configuration in the persistence.xml file in the src/main/resources folder. Replace the YOUR_USERNAME and YOUR_PASSWORD values with your MySQL credentials.
 
 ```
