@@ -25,8 +25,8 @@ public class Main {
     public static void createCitas(){
         Scanner scan = new Scanner(System.in);
 
-        System.out.print("Write the ID of the pacient: ");
-        int pacientID = scan.nextInt();
+        System.out.print("Write the ID of the patient: ");
+        int patientID = scan.nextInt();
 
         System.out.print("Write the ID of the doctor: ");
         int doctorID = scan.nextInt();
@@ -44,7 +44,7 @@ public class Main {
 
         jpaService.runInTransaction(entityManager -> {
             Date date = new Date(year-1900, month - 1, day); // 123 = year-1900, 3 = month (0-indexed), 14 = day
-            entityManager.persist(new Citas(pacientID, doctorID, date, new Time(10, 0, 0)));
+            entityManager.persist(new Citas(patientID, doctorID, date, new Time(10, 0, 0)));
             return null;
         });
     }
@@ -57,7 +57,7 @@ public class Main {
         });
 
         list.stream()
-                .map(ct -> "Id de la cita: " + ct.getId() + "\nId del pactiente: " + ct.getId_paciente() + "\nId del medico: " + ct.getId_medico() + "\nHora: " + ct.getHora() + "\nFecha: " + ct.getFecha())
+                .map(ct -> "Appointment ID: " + ct.getId() + "\nPatient ID: " + ct.getId_paciente() + "\nDoctor ID: " + ct.getId_medico() + "\nHour: " + ct.getHora() + "\nDate: " + ct.getFecha())
                 .forEach(System.out::println);
     }
 
